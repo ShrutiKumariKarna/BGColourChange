@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorChangeProject</title>
+
+    <!-- Adding CSS -->
+    <style>
+        *{
+        padding:0;
+        margin:0;
+        box-sizing:border-box;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #buttonsid{
+            height:40px;
+            width:160px;
+            border-radius: 20px;
+            border-style:solid;
+            letter-spacing: 1px;
+            font-size: 15px;
+            background-color: rgba(160, 160, 157, 0.813);
+        }
+    </style>
+
+</head>
+<body>
+    <button id="buttonsid">ClickMeToChange</button>
+    <script>
+        // yaha pe jab get element by class name kiya toh nhi huwa 
+        const bttn = document.getElementById("buttonsid"); 
+
+
+        function changecolor() {
+            let values = "123456ABCDEF";
+            let hash = "#";
+            for (let i = 0; i < 6; i++) {
+                hash = hash + values[Math.floor(Math.random() * 16)];
+            }
+            return hash;
+        }
+
+        function getcolor() {
+            document.body.style.backgroundColor = changecolor();
+        }
+
+        bttn.addEventListener("click", getcolor);
+    </script>
+</body>
+</html>
